@@ -1,7 +1,8 @@
 class Solution:
     def isPowerOfFour(self, n: int) -> bool:
-        if n==1:return True
-        elif n>=0 and n<1:
+        b=bin(n)[2:]
+        if n<0:
             return False
-        else:
-            return self.isPowerOfFour(n/4)
+        if b.count('1')==1 and (len(b)-1)%2==0:
+            return True
+        return False
