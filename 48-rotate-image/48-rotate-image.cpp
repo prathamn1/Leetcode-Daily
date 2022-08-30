@@ -1,3 +1,11 @@
+/*
+operation                                degree
+transpose and swap half columns           90
+swap all rows and then all columns        180
+transpose and swap rows                   270
+*/
+
+
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
