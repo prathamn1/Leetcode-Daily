@@ -9,23 +9,31 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+
+/*
+Acutually the question is asking you to start from root node and move till leaf node( a node which has no left and no right child as on line 26 in code )
+when you reach at leaf node check that whether the sum you have calculated on this path is equal to the current sum or not.
+*/
+
+
 class Solution {
 public:
-    bool dfs(TreeNode* node, int curr_sum, int target) {
+    bool dfs(TreeNode* node, int final_sum) {
         if(not node) {
             return false;
         }
-        curr_sum+=node->val;
+        final_sum-=node->val;
         if(not node->left and not node->right) {
-            if(curr_sum==target) {
+            if(final_sum==0) {
                 return true;
             }
             return false;
         }
-        return dfs(node->left,curr_sum,target) or dfs(node->right,curr_sum,target);
+        return dfs(node->left,final_sum) or dfs(node->right,final_sum);
         
     }
     bool hasPathSum(TreeNode* root, int targetSum) {
-        return dfs(root,0,targetSum);
+        return dfs(root,targetSum);
     }
 };
