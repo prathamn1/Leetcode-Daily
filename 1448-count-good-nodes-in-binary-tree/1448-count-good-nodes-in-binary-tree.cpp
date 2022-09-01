@@ -9,6 +9,10 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+//Thought process will be in a way like to start with root node with the maximum value to be minimum integer value possible ie INT_MIN and then do depth-first-search for every node and update the maxi value covered so far on that path .
+
+//All in one don't think too much dfs will take care of everything
 class Solution {
 public:
     void dfs(TreeNode* node,int maxi,int &ans) {
