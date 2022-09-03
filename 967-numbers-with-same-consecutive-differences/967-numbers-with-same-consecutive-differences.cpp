@@ -1,7 +1,7 @@
 #include<cmath>
 class Solution {
 public:
-    void solve(int digit,vector<int>curr_num,int n,int k,vector<int>&ans) {
+    void solve(int digit,vector<int> &curr_num,int n,int k,vector<int>&ans) {
         if(digit<0 or digit>9 or curr_num.size()>n) {
             return ;
         }
