@@ -17,7 +17,7 @@ public:
         if(k!=0) {
         solve(digit-k,curr_num,n,k,ans);
         }
-        // curr_num.pop_back()
+        curr_num.pop_back();
     }
     vector<int> numsSameConsecDiff(int n, int k) {
         vector<int>ans;
