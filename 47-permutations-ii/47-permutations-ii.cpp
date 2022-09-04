@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void solve(int n,vector<int>nums,vector<int>&curr_perm,unordered_map<int,int>&visited,vector<vector<int>>&ans) {
+    void solve(int n,vector<int>&curr_perm,unordered_map<int,int>&visited,vector<vector<int>>&ans) {
         if(curr_perm.size()==n) {
             ans.push_back(curr_perm);
         }
@@ -8,7 +8,7 @@ public:
             if(i.second) {
                 curr_perm.push_back(i.first);
                 i.second--;
-                solve(n,nums,curr_perm,visited,ans);
+                solve(n,curr_perm,visited,ans);
                 curr_perm.pop_back();
                 i.second++;
             }
@@ -22,7 +22,7 @@ public:
         for(auto i:nums) {
             visited[i]++;
         }
-        solve(n,nums,curr_perm,visited,ans);
+        solve(n,curr_perm,visited,ans);
         return ans;
     }
 };
