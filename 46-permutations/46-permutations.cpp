@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void solve(int n,vector<int>nums,vector<int>&curr_perm,vector<bool>&visited,vector<vector<int>>&ans) {
+    void solve(int n,vector<int>&nums,vector<int>&curr_perm,vector<bool>&visited,vector<vector<int>>&ans) {
         if(curr_perm.size()==n) {
             ans.push_back(curr_perm);
         }
