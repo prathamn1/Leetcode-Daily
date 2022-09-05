@@ -33,13 +33,10 @@ public:
             for(int i=0;i<st;i++) {
                 Node* k=q.front();
                 q.pop();
-                if(k) {
-                    ans.back().push_back(k->val);
-                    for(int j=0;j<k->children.size();j++) {
-                        q.push(k->children[j]);
-                    }
-                }
-                
+                ans.back().push_back(k->val);
+                for(int j=0;j<k->children.size();j++) {
+                    q.push(k->children[j]);
+                } 
             }
         }
         return ans;
