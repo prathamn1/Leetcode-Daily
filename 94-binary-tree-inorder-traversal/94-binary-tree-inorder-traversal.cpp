@@ -13,19 +13,18 @@ class Solution {
 public:
     
     vector<int>ans;
-    // void solve(TreeNode* root,vector<int>&ans) {
-    //     if(not root) {
-    //         return ;
-    //     }
-    // }
+    void solve(TreeNode* root,vector<int>&ans) {
+        if(not root) {
+            return ;
+        }
+        solve(root->left,ans);
+        ans.push_back(root->val);
+        solve(root->right,ans);
+    }
     
     vector<int> inorderTraversal(TreeNode* root) {
-        if(not root) {
-            return ans;
-        }
-        inorderTraversal(root->left);
-        ans.push_back(root->val);
-        inorderTraversal(root->right);
+        vector<int>ans;
+        solve(root,ans);
         return ans;
     }
 };
