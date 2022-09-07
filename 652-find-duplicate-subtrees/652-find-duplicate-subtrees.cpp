@@ -16,7 +16,7 @@ public:
             return "";
         }
         s="("+solve(root->left,ans,s,mp)+to_string(root->val)+solve(root->right,ans,s,mp)+")";
-        cout<<s<<"  ";
+        // cout<<s<<"  ";
         mp[s]++;
         if(mp[s]==2) {
             ans.push_back(root);
