@@ -13,7 +13,7 @@ class Solution {
 public:
     void preorder(TreeNode* root ,string &s) {
         s+=to_string(root->val);
-        if(not root->left and root->right) {
+        if(not root->left and root->right) { // considering the second sample test case in description
             s+="()";
         }
         if(root->left) {
