@@ -15,12 +15,16 @@
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
-        stack<TreeNode*>st;
         vector<int>ans;
+        // if(not root) {
+        //     return ans;
+        // }
+        stack<TreeNode*>st;
+        
         st.push(root);
         while(not st.empty()) {
             TreeNode* k=st.top();
-            if(not k) {
+            if(not k) {    //if you want to skip this then decomment the first three lines
                 break;
             }
             ans.push_back(k->val);
