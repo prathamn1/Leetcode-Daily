@@ -36,20 +36,19 @@ public:
         vector<int>ans;
         stack<TreeNode*>st;
         st.push(root);
-        while( not st.empty()) {
-            TreeNode* k=st.top();
+        while(not st.empty()) {
+            TreeNode* k = st.top();
             if(not k) {
                 st.pop();
                 if(not st.empty()) {
                     k=st.top();
-                    st.pop();    
                     ans.push_back(k->val);
-                    st.push(k->right);  
+                    st.pop();
+                    st.push(k->right);
                 }
             }else {
                 st.push(k->left);
             }
-            
         }
         return ans;
     }
