@@ -58,25 +58,103 @@
 
 
 
+// class Solution {
+// public:
+//     vector<int> inorderTraversal(TreeNode* root) {
+//         vector<int>ans;
+//         TreeNode* node=root;
+//         stack<TreeNode*>st;
+//         while(true) {
+//             if(node) {
+//                 st.push(node);
+//                 node=node->left;
+//             }else {
+//                 if(st.empty()) {
+//                     break;
+//                 }
+//                 ans.push_back(st.top()->val);
+//                 node=st.top()->right;
+//                 st.pop();
+//             }
+//         }
+//         return ans;
+//     }
+// };
+
+
+
+
+
+
+
+
+
+// class Solution {
+// public:
+//     vector<int> inorderTraversal(TreeNode* root) {
+//         vector<int>ans;
+//         stack<TreeNode*>st;
+//         st.push(root);
+//         while(not st.empty()) {
+//             TreeNode* k = st.top();
+//             if(not k) {
+//                 st.pop();
+//                 if(not st.empty()) {
+//                     k=st.top();
+//                     ans.push_back(k->val);
+//                     st.pop();
+//                     st.push(k->right);
+//                 }
+//             }else {
+//                 st.push(k->left);
+//             }
+//         }
+//         return ans;
+//     }
+// };
+
+//All three traversal using one stack
+
+
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        vector<int>ans;
-        TreeNode* node=root;
-        stack<TreeNode*>st;
-        while(true) {
-            if(node) {
-                st.push(node);
-                node=node->left;
-            }else {
-                if(st.empty()) {
-                    break;
+        if(not root) {
+            return vector<int>();
+        }
+        
+        
+        vector<int>preorder;   //id=1
+        vector<int>inorder;//id=2
+        vector<int>postorder;//id=3
+        
+        stack<pair<TreeNode*,int>>st;
+        st.push({root,1});
+        while(not st.empty()) {
+            pair<TreeNode*,int>k=st.top();
+            st.pop();
+            if(k.second==1) {
+                preorder.push_back(k.first->val);
+                k.second++;
+                st.push(k);
+                if(k.first->left) {
+                    st.push({k.first->left,1});
                 }
-                ans.push_back(st.top()->val);
-                node=st.top()->right;
-                st.pop();
+            }
+            
+            else if(k.second==2) {
+                inorder.push_back(k.first->val);
+                k.second++;
+                st.push(k);
+                if(k.first->right) {
+                    st.push({k.first->right,1});
+                }
+            }
+            else {
+                postorder.push_back(k.first->val);
             }
         }
-        return ans;
+        return inorder;   
     }
 };
+
