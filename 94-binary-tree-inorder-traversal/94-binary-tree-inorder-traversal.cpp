@@ -30,24 +30,51 @@
 // };
 
 
+// class Solution {
+// public:
+//     vector<int> inorderTraversal(TreeNode* root) {
+//         vector<int>ans;
+//         stack<TreeNode*>st;
+//         st.push(root);
+//         while(not st.empty()) {
+//             TreeNode* k = st.top();
+//             if(not k) {
+//                 st.pop();
+//                 if(not st.empty()) {
+//                     k=st.top();
+//                     ans.push_back(k->val);
+//                     st.pop();
+//                     st.push(k->right);
+//                 }
+//             }else {
+//                 st.push(k->left);
+//             }
+//         }
+//         return ans;
+//     }
+// };
+
+
+
+
+
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int>ans;
+        TreeNode* node=root;
         stack<TreeNode*>st;
-        st.push(root);
-        while(not st.empty()) {
-            TreeNode* k = st.top();
-            if(not k) {
-                st.pop();
-                if(not st.empty()) {
-                    k=st.top();
-                    ans.push_back(k->val);
-                    st.pop();
-                    st.push(k->right);
-                }
+        while(true) {
+            if(node) {
+                st.push(node);
+                node=node->left;
             }else {
-                st.push(k->left);
+                if(st.empty()) {
+                    break;
+                }
+                ans.push_back(st.top()->val);
+                node=st.top()->right;
+                st.pop();
             }
         }
         return ans;
