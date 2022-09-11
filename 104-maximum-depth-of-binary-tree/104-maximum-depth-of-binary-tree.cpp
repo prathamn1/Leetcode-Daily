@@ -9,14 +9,63 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// class Solution {
+// public:
+//     int maxDepth(TreeNode* root) {
+//         if(not root) {
+//             return 0;
+//         }
+//         int left_depth=maxDepth(root->left);
+//         int right_depth=maxDepth(root->right);
+//         return max(left_depth,right_depth)+1;
+//     }
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
         if(not root) {
             return 0;
         }
-        int left_depth=maxDepth(root->left);
-        int right_depth=maxDepth(root->right);
-        return max(left_depth,right_depth)+1;
+        int left_height=maxDepth(root->left)+1;
+        int right_height=maxDepth(root->right)+1;
+        return max(left_height,right_height);
     }
 };
