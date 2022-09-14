@@ -9,6 +9,8 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// just make tree
 class Solution {
 public:
     bool check_palindromic(vector<int>& freq) {
@@ -37,7 +39,6 @@ public:
             return ;
         }
         dfs(root->left,freq,ans);
-        // freq[root->val]--;
         dfs(root->right,freq,ans);
         freq[root->val]--;
     }
