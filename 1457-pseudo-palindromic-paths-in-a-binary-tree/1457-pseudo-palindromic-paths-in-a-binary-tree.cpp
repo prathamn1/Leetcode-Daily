@@ -24,7 +24,7 @@ public:
         return true;
     }
     
-    void dfs(TreeNode* root,vector<int>freq,int & ans) {
+    void dfs(TreeNode* root,vector<int>&freq,int & ans) {
         if(not root) {
             return;
         }
@@ -33,13 +33,13 @@ public:
             if(check_palindromic(freq)) {
                 ans++;
             }
-            // freq[root->val]--;
+            freq[root->val]--;
             return ;
         }
         dfs(root->left,freq,ans);
-        
-        dfs(root->right,freq,ans);
         // freq[root->val]--;
+        dfs(root->right,freq,ans);
+        freq[root->val]--;
     }
     
     
