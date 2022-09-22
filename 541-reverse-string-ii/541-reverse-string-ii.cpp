@@ -6,9 +6,6 @@ public:
         int l=0;
         while(l<n) {
             for(int i=min(l+k-1,n-1);i>=l;i--) {
-                // if(i>n-1) {
-                //     break;
-                // }
                 ans+=s[i];
             }
             l+=k;
@@ -16,7 +13,6 @@ public:
                 ans+=s[i];
             }
             l+=k;
-            // cout<<l<<endl;
         }
         return ans;
     }
