@@ -1,22 +1,8 @@
 class Solution:
     def pushDominoes(self, domino: str) -> str:
-        domino='L'+domino+'R'
+        domino='L'+domino+'R'  # adding boundaries to make code small
         n=len(domino)
         ans=[x for x in domino]
-        # i=0
-        # while i<n and domino[i]=='.':
-        #     i+=1
-        # start=i
-        # if start>=0 and start<n and domino[start]=='L':
-        #     for j in range(i):
-        #         ans[j]=domino[start]
-        # i=n-1
-        # while i>=0 and domino[i]=='.':
-        #     i-=1
-        # stop=i
-        # if stop >=0 and stop <n and domino[stop]=='R':
-        #     for j in range(i+1,n):
-        #         ans[j]=domino[stop]
         start=0
         stop=n-1
         while start<stop:
@@ -25,18 +11,10 @@ class Solution:
                 right+=1
             l=start+1
             r=right-1
-            if domino[start]=='L' and domino[right]=='R':
-                start=right
-            elif domino[start]==domino[right]:
-                k=''
-                if domino[start]=='L':
-                    k=domino[right]
-                else:
-                    k=domino[start]
+            if domino[start]==domino[right]:
                 for j in range(l,right):
-                    ans[j]=k
-                start=right
-            else:
+                    ans[j]=domino[start]
+            elif domino[start]=='R' and domino[right]=='L':
                 while l<=r:
                     if l==r:
                         ans[l]='.'
@@ -45,10 +23,8 @@ class Solution:
                         ans[r]=domino[right]
                     l+=1
                     r-=1
-                start=right
+            start=right
         return ''.join(ans[1:n-1])
-                    
-# print(Solution().pushDominoes(".L.R...LR..L.."))
 
 
         
