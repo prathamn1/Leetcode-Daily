@@ -1,14 +1,13 @@
 class Solution:
     def maxProduct(self, a: List[int]) -> int:
         # the idea is to keep track of minimum and maximum product every time we multiply the new number
-        
-        maxp=minp=ans=a[0]
+        maximum_product=minimum_product=ans=a[0]
         i=1
         while i<len(a):
-            ch1=maxp*a[i]
-            ch2=minp*a[i]
-            maxp=max(ch1,ch2,a[i])
-            minp=min(ch1,ch2,a[i])
-            ans=max(maxp,ans)
+            product_1=maximum_product*a[i]
+            product_2=minimum_product*a[i]
+            maximum_product=max(product_1,product_2,a[i]) # for [-1,2] the max product will be element 2 itself
+            minimum_product=min(product_1,product_2,a[i]) # for [-1,-8] the min product will be element 8 itself
+            ans=max(ans,maximum_product)
             i+=1
         return ans
