@@ -9,17 +9,17 @@ public:
         for(auto i:diff) {
             arr.push_back(__builtin_popcount(i));
         }
-        sort(arr.begin(),arr.end());
+        sort(arr.begin(),arr.end()); // sorting to count the number of pairs -: same as the question for find the number of pairs such that a+b<=k
         long long l=0,r=arr.size()-1,ans=0;
         while(l<=r) {
             if(arr[l]+arr[r]>=k) {
-                if(arr[r]*2>=k) {
+                if(arr[r]*2>=k) {  // to check for the individual pairing of numbers with themselves
                     ans+=1;
                 }
                 ans+=(r-l)*2;
                 r-=1;
             }else {
-                if(arr[l]*2>=k) {
+                if(arr[l]*2>=k) {  //similar to above
                     ans+=1;
                 }
                 l+=1;
