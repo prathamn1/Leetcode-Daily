@@ -29,7 +29,7 @@ public:
                 }
                 if(count==len) {
                     distinct.insert(text.substr(left,len));
-                    count-=1;
+                    count-=1; // it's a catch suppose we have a string to check that is 'abcabcabc' so easily we could have found our first match and at that time our l=2 and r=5 but after that we have to remove the first character that is we should now start checking from 'b'(index 1) , but isn't it necessary as we have just checked 'bc' so we will just decrement our count by 1 to check for next character after 'bc' i.e. 'a'.
                 }
             }
         }
