@@ -1,3 +1,4 @@
+//you can also use vector<char>(26,false) for improving time and space complexity 
 class Solution {
 public:
     void solve(int curr_index,set<char>curr_set,vector<string>&arr,int &ans) {
