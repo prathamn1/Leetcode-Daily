@@ -1,3 +1,5 @@
+#using concept of weighted median or we can take cost of one single element as there are same element with that frequency ( same as frequency table ) and thus we have to calculate the median of this table.
+
 class Solution:
     def minCost(self, nums: List[int], cost: List[int]) -> int:
         weighted_median=sorted(zip(nums,cost))
