@@ -1,3 +1,5 @@
+// when solved on a copy make some graphic lines while calculating the time for a particular element .
+// use intervals between adjacent indexes instead of indexes itself and soon you will arrive at a formula.
 class Solution {
 public:
     vector<long long> getDistances(vector<int>& nums) {
