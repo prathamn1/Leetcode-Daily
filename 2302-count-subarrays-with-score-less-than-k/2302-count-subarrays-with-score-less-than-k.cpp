@@ -1,3 +1,4 @@
+//great problem for practising as uses the concept of window sliding to count subarrays . remember at every step ans+="r-l+1" states that no. of subarrays which are starting from l till r .
 class Solution {
 public:
     long long countSubarrays(vector<int>& nums, long long k) {
