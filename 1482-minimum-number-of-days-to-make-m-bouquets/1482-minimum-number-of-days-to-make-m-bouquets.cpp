@@ -1,3 +1,6 @@
+//great problem for binary search , actually the method of sorting and then checking which subarry of indices of size k are adjacent does not work .
+//so binary search is a great choice where we find the whether m boquets could be make till this day and if possible then answer could be below this range or if not possible then surely we increase the l to increase the day limit
+
 class Solution {
 public:
     bool can_make_m_boquets(vector<int>&bloom,int day_limit,int m,int k) {
