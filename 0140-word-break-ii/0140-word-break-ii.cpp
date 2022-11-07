@@ -1,3 +1,4 @@
+//great question for practicing trie.
 class Node {
   public:
     Node * links[26];
@@ -37,7 +38,7 @@ Node * root;
     }
     void solve(int curr_index,string curr_string,Node* curr_node,string& s,vector<string>&ans) {
         if(curr_index==s.size()) {
-            curr_string.pop_back();
+            curr_string.pop_back(); // to remove the extra space added from the call
             ans.push_back(curr_string);
         }
         for(int i=curr_index;i<s.size();i++) {
@@ -48,7 +49,7 @@ Node * root;
             }
             curr_node=curr_node->get_next_node(s[i]);
             if(curr_node->is_end()) {
-                solve(i+1,curr_string+" ",root,s,ans);
+                solve(i+1,curr_string+" ",root,s,ans); // if we found the word in worddict then make another call from here. and the previous call will run as it is
             }
         }    
     }
