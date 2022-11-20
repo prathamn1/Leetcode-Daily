@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long int total_fuel=0;
-    int dfs(int curr_node,int& seats , vector<bool>& is_visited,unordered_map<int,vector<int>>&adj) {
+    int dfs(int curr_node,int& seats , vector<bool>& is_visited,vector<int> adj[]) {
         int curr_people=1;
         is_visited[curr_node]=true;
         for(auto child:adj[curr_node]) {
@@ -15,7 +15,7 @@ public:
     }
     long long minimumFuelCost(vector<vector<int>>& roads, int seats) {
         int n=roads.size();
-        unordered_map<int,vector<int>>adj;
+        vector<int> adj[n+1];
         for(auto edge:roads) {
             adj[edge[0]].push_back(edge[1]);
             adj[edge[1]].push_back(edge[0]);
