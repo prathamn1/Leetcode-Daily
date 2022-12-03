@@ -31,12 +31,12 @@ public:
         return l;
     }
     ListNode* rotateRight(ListNode* head, int k) {
-        if(not head) {
+        if(not head) { //edge case
             return NULL;
         }
         int n=length_list(head);
         k=k%n;
-        if(k==0) {
+        if(k==0) {  //edge case as if k==0 then from the first reverse prev_node will be pointing to NULL which is incorrect;
             return head;
         }
         ListNode* head_rev=reverse(head,n).first;
